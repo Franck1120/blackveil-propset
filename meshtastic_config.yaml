@@ -1,0 +1,40 @@
+# Black Veil — sanitized Meshtastic node config
+# Apply with:  meshtastic --configure meshtastic_config.yaml
+# Tested with meshtastic-python v2.5.x against firmware 2.5.x.
+# Verify your toolchain first:  meshtastic --version
+#
+# NOTE: region and PIN below are EXAMPLES. Use your own region's legal ISM
+# band and duty-cycle rules. Do not copy a region setting blindly.
+
+config:
+  lora:
+    region: EU_868          # <-- set YOUR legal ISM region (US, EU_868, ANZ, ...)
+    modem_preset: LONG_FAST  # range/speed tradeoff that worked well in woodland
+    hop_limit: 3
+
+  device:
+    role: CLIENT             # plain client node on the shared mesh
+
+  bluetooth:
+    enabled: true
+    mode: FIXED_PIN
+    fixed_pin: "868477"      # players recover this PIN from prop B (DOC_1)
+
+  # The primary channel is the shared broadcast bus the puzzle hinges on.
+  # Everything sent here is heard by EVERY node — that's the trap.
+channels:
+  - index: 0
+    role: PRIMARY
+    settings:
+      name: "LongFast"       # default shared channel
+      # psk: default          # leave default for the public broadcast channel
+
+# --- Suggested node list (set short names on each physical node) ---
+# Four "hostile" nodes + one friendly infiltrator. Only ECHO-9 is the
+# correct DM target; GHOST-4 is a deliberate name-decoy.
+#
+#   SIGMA-CMD     hostile (master)
+#   SIGMA-RELAY   hostile
+#   SIGMA-3       hostile
+#   GHOST-4       hostile (tempting friendly-sounding name = decoy)
+#   ECHO-9        INFILTRATOR  <-- the only correct direct-message recipient

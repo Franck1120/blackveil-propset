@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Meshtastic / device dumps — never commit real configs with live PINs or keys
+*.real.yaml
+*-private.yaml
+node-dump-*.json
+
+# Build / scratch
+*.log
+*.tmp
