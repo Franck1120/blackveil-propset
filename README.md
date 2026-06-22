@@ -4,7 +4,7 @@ Sanitized prop set, radio config, and reference tooling for **Operation Black Ve
 field-deployable Meshtastic/LoRa cryptography puzzle designed for an airsoft milsim event.
 
 > Full design writeup: **Black Veil: A Field-Deployable Crypto Puzzle Over Meshtastic**
-> by Francesco "Kekko" Rocco — Hephios Lab.
+> ([black-veil-writeup](https://github.com/Franck1120/black-veil-writeup)).
 
 This repo lets you **reproduce the technique**, not the event. Names, coordinates, and
 event-identifying details are removed or replaced with placeholders on purpose. The goal is
